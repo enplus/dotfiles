@@ -1,0 +1,151 @@
+" For Vundle Default "{{{
+   set nocompatible              " be iMproved, required
+   filetype off                  " required
+
+   "set the runtime path to include Vundle and initialize
+   set rtp+=~/.vim/bundle/Vundle.vim
+   call vundle#begin()
+   Plugin 'VundleVim/Vundle.vim'
+   " Keep Plugin commands between vundle#begin/end.
+   " plugin on GitHub repo
+   Plugin 'tpope/vim-fugitive'
+   " plugin from http://vim-scripts.org/vim/scripts.html
+   Plugin 'L9'
+   " Git plugin not hosted on GitHub
+"   Plugin 'git://git.wincent.com/command-t.git'
+   " git repos on your local machine (i.e. when working on your own plugin)
+   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+   " Avoid a name conflict with L9
+   " "}}}
+
+		"Bundle List
+		Bundle 'The-NERD-tree'
+		Bundle 'ctrlp.vim'
+		Bundle 'taglist.vim'
+		Bundle 'vim-airline/vim-airline'
+		Bundle 'vim-airline/vim-airline-themes'
+"		Bundle 'paranoida/vim-airlineish'
+		Bundle 'vim-airlineish'
+		Bundle 'easymotion/vim-easymotion'
+		"Bundle 'jistr/vim-nerdtree-tabs'
+
+		"visual - colorscheme,syntax
+		Bundle 'BusyBee'
+"		Bundle 'vividchalk.vim'
+"		Bundle 'altercation/vim-colors-solarized'
+		Bundle 'scrooloose/syntastic'
+		Bundle 'luochen1990/rainbow'
+		Bundle 'flazz/vim-colorschemes'
+
+		" Mark 표시
+		Bundle 'kshenoy/vim-signature'
+		Bundle 'calendar.vim'
+
+		Bundle 'octol/vim-cpp-enhanced-highlight' 
+
+		"python
+		Bundle 'Python-Syntax'
+		Bundle 'vim-python-virtualenv'
+		Bundle 'vim-ipython'
+		Bundle 'Python-mode-klen'
+
+		"WindowsManager
+		Bundle 'winmanager'
+		Bundle 'christoomey/vim-tmux-navigator'
+
+		"Make,Build,Compile
+		Bundle 'autocomp.vim'
+		Bundle 'OmniCppComplete'
+		Bundle 'AutoComplPop'
+		Bundle 'SingleCompile'
+		Bundle 'Valloric/YouCompleteMe'
+		Bundle 'Valloric/ListToggle'
+
+		"For editing
+		" 주석 처리 - gcc 현재라인 gci} 블럭 등
+		Bundle 'tpope/vim-commentary'				
+		" .으로 반복 작업
+		Bundle 'tpope/vim-repeat'
+		" vim상에서 :Make 명령 제공
+		Bundle 'tpope/vim-dispatch'
+
+		" ds( - () 괄호 제거 cs'( '를 (로 변경
+		Bundle 'tpope/vim-surround'
+
+		"MarkDown	
+		Bundle 'suan/vim-instant-markdown'
+		Bundle 'airblade/vim-gitgutter'
+		
+		"Plugin 'AutoClose'
+
+		"pathogen install
+		"curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+		"cd ~/.vim/bundle
+		"git clone git://github.com/tpope/vim-dispatch.git
+		"git clone git://github.com/tpope/vim-surround.git
+
+
+   " All of your Plugins must be added before the following line
+   call vundle#end()            " required
+   filetype plugin indent on    " required
+   
+" airline Settings"{{{
+let g:airline#extensions#tabline#enabled = 1
+" 파일명만 출력
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_detect__paste=1
+let g:airline_theme='airlineish'                      
+"}}}
+
+" For BufferList"{{{
+" 이 옵션은 버퍼를 수정한 직후 버퍼를 감춰지도록 한다.
+" 이 방법으로 버퍼를 사용하려면 거의 필수다.
+set hidden
+
+" 버퍼 새로 열기
+" 원래 이 단축키로 바인딩해 두었던 :tabnew를 대체한다.
+nmap <leader>T :enew<CR>
+
+" 다음 버퍼로 이동
+nmap <leader><Tab> :bnext<CR>
+
+" 이전 버퍼로 이동
+nmap <leader><S-Tab> :bprevious<CR>
+
+" 현재 버퍼를 닫고 이전 버퍼로 이동
+" 탭 닫기 단축키를 대체한다.
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" 모든 버퍼와 각 버퍼 상태 출력
+nmap <leader>bl :ls<CR>"}}}
+
+"let moria_style = 'dark' " black ,dark , light, white
+"colo moria
+
+"NERDTree Tabs
+"let g:nerdtree_tabs_open_on_console_startup=1
+let NERDTreeWinSize = 18
+
+"EasyMotion"{{{
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+"nmap <C-?> <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+"nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+nmap <Leader>/ <Plug>(easymotion-overwin-f2)
+"}}}
+
