@@ -99,6 +99,14 @@ zstyle ':omz:module:tmux' auto-start 'yes'
 # 오타 자동수정
 #setopt correct
 
+if (filereadable($DOTFILES . "/common_aliases"))
+	    :source $DOTFILES/common_aliases
+endif
+
+if [ -f $DOTFILES/common_aliases ]; then
+	source $DOTFILES/common_aliases
+fi
+
 # Use Z command
 source $HOME/compile/git/z/z.sh
 
@@ -106,3 +114,9 @@ source $HOME/compile/git/z/z.sh
 alias tmux='tmux -2'
 
 [ -s "/home/deplus/.scm_breeze/scm_breeze.sh" ] && source "/home/deplus/.scm_breeze/scm_breeze.sh"
+
+#VirtualEnv AutoStart
+#source ~/.autoenv/activate.sh
+#
+setopt noincappendhistory
+setopt nosharehistory
