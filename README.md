@@ -1,3 +1,5 @@
+### for NEOVIM.
+
 ### Bundle & Pathogen 설치
 
 ```
@@ -25,19 +27,3 @@ sudo apt-get install libclang-dev
 
 * 이후 :PluginInstall!
 ---
-
-### Instant-markdown-preview
-
-```
-[sudo] apt-get install npm
-
-[sudo] npm -g install instant-markdown-d
-(on Linux, the xdg-utils package needs to be installed)
-
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-```
-
-```
- :InstantMarkdownPreview
-```
