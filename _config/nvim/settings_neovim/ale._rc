@@ -1,0 +1,60 @@
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \   'python': ['flake8'],
+      \ 	'haskell': ['stack-ghc-mod', 'hdevtools']
+			\}
+      " \ 	'haskell': ['stack-ghc-mod', 'hlint', 'hdevtools']
+      " \   'python': ['pylint'],
+      " \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+
+" let g:ale_linters = []
+" let g:ale_linters.javascript = ['eslint']
+" let g:ale_linters.python = ['flake8']
+" let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint', 'hdevtools']
+
+" let g:ale_fixers = g:ale_linters
+
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix = 1
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = 0
+" let g:ale_list_window_size = g:quickfixsize " init.vim의 copen 7 과 같은 값으로 설정
+
+let g:ale_sign_column_always = 0
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = "never"
+
+hi! link ALEWarning WarningMsg
+hi! ALEError cterm=reverse ctermfg=142 ctermbg=235 gui=reverse guifg=#b8bb26 guibg=#282828
+
+let g:airline#extensions#ale#enabled = 1
+
+function! ToggleAleDetail()
+  " if &pvw | pclose | else | call ale#cursor#ShowCursorDetail() | endif  " if &pvw(previewwindow)
+  if &pvw
+    pclose
+  else
+    if ale#ShouldDoNothing(bufnr(''))
+      if &ft == 'haskell'
+        execute InteroGenericType
+        " echo "normal"
+      endif
+    else
+      call ale#cursor#ShowCursorDetail()
+    endif
+  endif  " if &pvw(previewwindow)
+
+  " for ft in ['haskell', 'python']
+  " endfor
+endfunction
+
+" nnoremap <buffer> <leader>k :call ale#cursor#ShowCursorDetail()<cr>
+autocmd FileType python,haskell nnoremap <silent> <leader><leader> :call ToggleAleDetail()<cr>
