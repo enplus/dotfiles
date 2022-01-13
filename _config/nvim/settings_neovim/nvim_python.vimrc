@@ -7,7 +7,7 @@ if empty(glob(g:anaconda2_path))
   let g:python_host_prog='/usr/bin/python2'
 endif
 
-let g:python3_host_prog='/opt/local/anaconda3/bin/python3'
+"let g:python3_host_prog='/opt/local/anaconda3/bin/python3'
 
 " for deoplete-jedi
 let g:deoplete#sources#jedi#statement_length = 80

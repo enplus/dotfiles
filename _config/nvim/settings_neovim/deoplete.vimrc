@@ -74,7 +74,12 @@ let g:python_version = matchstr(system("python --version | cut -f2 -d' '"), '^[0
 if g:python_version =~ 3
     let g:python_host_prog = "/usr/bin/python2"
 else
-    let g:python3_host_prog = "/opt/local/anaconda3/bin/python3"
+  let hostname = system("hostname")
+    if hostname[:1] ==? "op"
+      let g:python3_host_prog = "/usr/bin/python3"
+    else
+      let g:python3_host_prog = "/opt/local/anaconda3/bin/python3"
+    endif
 endif
 
 "let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
