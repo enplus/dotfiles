@@ -2,9 +2,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 case $(hostname) in
-	(op) export DOTFILES=$HOME/dotfiles
-	(dev) export DOTFILES=/opt/data/dotfiles
-	(*)  echo "host name not found. check (DOTFILES Env)"
+  op)
+	export DOTFILES=$HOME/dotfiles;;
+  dev) 
+	export DOTFILES=/opt/data/dotfiles;;
+  (*)  echo "host name not found. check (DOTFILES Env)";;
 esac
 
 # Set name of the theme to load.

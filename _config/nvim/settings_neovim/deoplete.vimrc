@@ -51,11 +51,12 @@ call Deoplete()
 "autocmd FileType c,cpp call Deoplete()
 
 " --- for javascript"{{{
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = ['tern#Complete', 'jspc#omni']
+call deoplete#custom#var('omni', 'functions', {})
+call deoplete#custom#var('omni', 'functions.javascript', ['tern#Complete', 'jspc#omni'])
 
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+call deoplete#custom#option('sources', {})
+call deoplete#custom#option('sources["javascript.jsx"]', ['file', 'ultisnips', 'ternjs'])
+
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 "}}}
