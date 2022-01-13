@@ -28,33 +28,25 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'vim-scripts/SQLComplete.vim'
 
 	"Completion
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-
-	" Plug 'w0rp/ale'  " SyntaxError Check
-
-	Plug 'Shougo/neco-vim' | Plug 'Shougo/neco-syntax' " Vim Script Completion & Syntax
+  Plug 'Shougo/neco-vim'
+  Plug 'neoclide/coc-neco'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 	"python
 	""""Bundle 'Python-Syntax'
 	"Optimized for Python ColorScheme "Bundle 'vim-scripts/vimbuddy.vim'
   " XXXXXX Plug 'davidhalter/jedi'  " for nvim
 
-	" Plug 'zchee/deoplete-zsh' "zsh Completion
   Plug 'davidhalter/jedi-vim'  " for vim not nvim
-  Plug 'deoplete-plugins/deoplete-jedi' " Python Completion for vim
+	" Plug 'zchee/deoplete-zsh' "zsh Completion
+  " Plug 'deoplete-plugins/deoplete-jedi' " Python Completion for vim
+	"Plug 'zchee/deoplete-clang' " Clang Completion
 
 	Plug 'tmhedberg/SimpylFold'
 	Plug 'tweekmonster/braceless.vim'
 	"""Plug 'Pydiction'
 
 
-	Plug 'zchee/deoplete-clang' " Clang Completion
 	"Plug 'python-mode/python-mode'
 
 	" Haskell
@@ -86,7 +78,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Installs vim-dispatch (required to launch OmniSharp server) vim상에서 :Make 명령 제공 """
   Plug 'tpope/vim-dispatch'
   " Installs this source
-  Plug 'https://gitlab.com/mixedCase/deoplete-omnisharp.git'
+  "Plug 'https://gitlab.com/mixedCase/deoplete-omnisharp.git'
 
 	"visual - colorscheme,syntax
 	Plug 'vim-airline/vim-airline'
@@ -100,7 +92,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	"javascript -
 	Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx'] }
-	Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+	"Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 	Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 	Plug 'pangloss/vim-javascript'
 	" Plug 'vim-sensible'
@@ -388,7 +380,7 @@ let g:ale_completion_enabled = 0
 
 """""" ale-if문 대체
 set runtimepath+=~/.config/nvim/plugged/deoplete.nvim/
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 " ===========================================================
 
 " let g:quickfixsize = 7
