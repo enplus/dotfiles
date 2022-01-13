@@ -1,7 +1,11 @@
-# Default settings
-export DOTFILES=$HOME/dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+case $(hostname) in
+	(op) export DOTFILES=$HOME/dotfiles
+	(dev) export DOTFILES=/opt/data/dotfiles
+	(*)  echo "host name not found. check (DOTFILES Env)"
+esac
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -72,15 +76,15 @@ plugins+=(zsh-completions)
 autoload -U compinit && compinit
 
 plugins+=(zsh-syntax-highlighting)
+#2022.01.11
+plugins+=(zsh-autosuggestions)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games::/home/deplus/eclipse_mars/eclipse"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games::/home/deplus/eclipse_mars/eclipse"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-#set -o vi
-
 # tmux auto-start option
 zstyle ':omz:module:tmux' auto-start 'yes'
 
@@ -112,24 +116,24 @@ zstyle ':omz:module:tmux' auto-start 'yes'
 # 오타 자동수정
 #setopt correct
 
-if (filereadable($DOTFILES . "/common_aliases"))
-	    :source $DOTFILES/common_aliases
-endif
+# if (filereadable($DOTFILES . "/common_aliases"))
 
 if [ -f $DOTFILES/common_aliases ]; then
 	source $DOTFILES/common_aliases
 fi
 
 # Use Z command
-source $HOME/compile/git/z/z.sh
+if [ -f $ZSH/plugins/z/z.sh ]; then
+	source $ZSH/plugins/z/z.sh
+fi
 
 #Tmux aliases
 alias tmux='tmux -2'
 
-[ -s "/home/deplus/.scm_breeze/scm_breeze.sh" ] && source "/home/deplus/.scm_breeze/scm_breeze.sh"
+[ -s $DOTFILES/scm_breeze/scm_breeze.sh ] && source $DOTFILES/scm_breeze/scm_breeze.sh
 
 #VirtualEnv AutoStart
 #source ~/.autoenv/activate.sh
-#
+
 setopt noincappendhistory
 setopt nosharehistory

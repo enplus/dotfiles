@@ -1,0 +1,256 @@
+# common_aliases
+#########################################
+# 개인 편의
+#########################################
+alias cdwhich='cd `which $1 | xargs dirname`'
+
+#for office
+alias h="history | tail -n 15"
+alias fn='find . -name $1'
+alias gwts='cd /home/office/git/wts2015'
+alias zz='ssh webroot@128.1.202.31 -p 4957'
+
+alias ec='/opt/local/eclipse/jee-mars/eclipse/eclimd'
+
+alias mkdir='mkdir -pv'
+# install colordiff
+alias diff='colordiff'
+
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias today='date +"%Y/%m/%d"'
+
+alias ping='ping -c 5'
+alias fastping='ping -c 100 -s.2'
+alias ports='netstat -tulanp'
+
+#safety nets
+alias rm='rm -I --preserve-root'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# distro specific  - Debian / Ubuntu and friends #
+# install with apt-get
+alias apt-get="sudo apt-get"
+alias updatey="sudo apt-get update --yes"
+alias route="sudo route"
+
+# update on one command 
+alias update='sudo apt-get update && sudo apt-get upgrade'
+
+alias root='sudo -i'
+#alias su='sudo -i'
+
+alias wakeoffice='/usr/bin/wakeonlan BC:30:5B:9F:A1:A9'
+
+#Tmux aliases - 필요시만 사용
+#alias tmux='tmux -2'
+
+#########################################
+# ls 관련
+#########################################
+#LS_OPTIONS='--8bit --color=yes -F -T 0 -b';
+#export LS_OPTIONS;
+#alias ls='/bin/ls $LS_OPTIONS ';
+#alias dir='/bin/ls $LS_OPTIONS --format=vertical';
+#alias vdir='/bin/ls $LS_OPTIONS --format=long';
+
+#########################################
+# Cleartool 형상관리
+#########################################
+#alias ctco='cleartool co -nc'
+alias ctci='cleartool ci -nc'
+alias ctls='cleartool ls'
+alias ctlh='cleartool lshistory'
+alias ctup='cleartool update'
+alias ctlsco='cleartool lsco -recurse'
+alias ctmk='cleartool mkelem -nc'
+alias ctrm='cleartool rmname'
+alias ctunco='cleartool unco'
+alias ctver='cleartool lsvtree'
+alias ctdiff='cleartool diff -pred'
+
+function ctco
+{
+	cleartool update $*;
+	cleartool co -nc $*;
+}
+
+# User specific aliases and functions
+alias rm='rm -i'
+alias ls='ls -CFl --color=tty'
+alias ll='ls -l'
+#alias p='ps -ef | grep $USER | grep -v ssh | grep -v bash | grep -v tail'
+alias p='ps -ef'
+alias r='fc -e -'
+
+# path alias
+COMPILE_DIR=$HOME/compile
+#INCLUDE_DIR=$COMPILE_DIR/include
+CC_STG_DIR=/home/office/cc_stg
+PYTHON_DIR=$COMPILE_DIR/python
+alias ccs='cd $CC_STG_DIR'
+
+alias comp='cd $COMPILE_DIR'
+
+
+alias nx='cd $COMPILE_DIR/nx'
+#########################################################
+# BCM Profile
+#########################################################
+export BCM_HOME=/home/office/cc_stg/bcm_STG_enplus_BCM/BCM
+export BOS_HOME=/home/office/cc_stg/bos_STG_enplus_BOS/RTQ_LI
+export IMDB_HOME=/home/office/cc_stg/imdb_UNI_enplus_IMDB/IMDB
+export IISD_HOME=/home/office/cc_stg/iisd_DEV_enplus_IISD/IISD
+export MFP_HOME=/home/office/cc_stg/mfp_STG_enplus_MFP/MFP
+export INFOWAY_HOME=/home/office/cc_stg/infoway_STG_enplus_SIGNON/SIGN
+export WQIS_HOME=/home/office/cc_stg/wqis_STG_enplus_WQIS/WQIS
+export ORD_HOME=/home/office/cc_stg/ord_DEV_enplus_ORD/home/buildusr/ord_c
+export GFX_HOME=/home/office/cc_stg/gfx_DEV_enplus_GFX_C/home/gfx_c
+export ALICE_HOME=/home/office/cc_stg/alice_STG_enplus_ALICE/CATSP
+export IWA_HOME=/home/office/cc_stg/iwa_DEV_enplus_IWA/home/iwa
+export TAGS_DIR=$HOME/compile/etc/tags
+
+export LC_TIME=C
+#alias tmux='tmux -2'
+
+BCM_DIR=$COMPILE_DIR/bcm
+BOS_DIR=$COMPILE_DIR/bos
+SSO_DIR=$COMPILE_DIR/sso
+MFP_DIR=$COMPILE_DIR/mfp
+WQIS_DIR=$COMPILE_DIR/wqis
+IMDB_DIR=$COMPILE_DIR/imdb
+IWA_DIR=$COMPILE_DIR/iwa
+IISD_DIR=$COMPILE_DIR/iisd
+ORD_DIR=$COMPILE_DIR/ord
+ORDLIB_DIR=$COMPILE_DIR/ord/lib
+ALICE_DIR=$COMPILE_DIR/alice
+XFS_DIR=$COMPILE_DIR/xfs
+
+#include
+#alias bcmi='cd $INCLUDE_DIR/bcm'
+#alias bosi='cd $INCLUDE_DIR/bos'
+#alias ssoi='cd $INCLUDE_DIR/sso'
+#alias mfpi='cd $INCLUDE_DIR/mfp'
+#alias wqisi='cd $INCLUDE_DIR/wqis'
+#alias imdbi='cd $INCLUDE_DIR/imdb'
+#alias iisdi='cd $INCLUDE_DIR/iisd'
+#alias ordi='cd $INCLUDE_DIR/ord'
+#alias alicei='cd $INCLUDE_DIR/alice'
+
+alias bcmi='cd bcm/include'
+alias bosi='cd bos/include'
+alias ssoi='cd sso/include'
+alias mfpi='cd mfp/include'
+alias wqisi='cd wqis/include'
+alias imdbi='cd imdb/include'
+alias iisdi='cd iisd/include'
+alias ordi='cd ord/include'
+alias alicei='cd alice/include'
+
+
+alias bcm='cd $COMPILE_DIR/bcm'
+alias bos='cd $COMPILE_DIR/bos'
+alias sso='cd $COMPILE_DIR/sso'
+alias mfp='cd $COMPILE_DIR/mfp'
+alias wqis='cd $COMPILE_DIR/wqis'
+alias imdb='cd $COMPILE_DIR/imdb'
+alias iwa='cd $COMPILE_DIR/iwa'
+alias iisd='cd $COMPILE_DIR/iisd'
+alias ord='cd $COMPILE_DIR/ord'
+alias ordlib='cd $COMPILE_DIR/ord/lib'
+alias alice='cd $COMPILE_DIR/alice'
+alias xfs='cd $COMPILE_DIR/xfs'
+#########################################################
+# Boost Profile
+#########################################################
+export CPLUS_INCLUDE_PATH=/opt/local/include:/usr/local/include
+export C_INCLUDE_PATH=/usr/local/include
+export DYLD_LIBRARY_PATH=/opt/local/lib
+
+#Dummy Data
+#export LS_COLORS='di=00;33:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:*.sc=00;36:*.c=00;36:*.h=01;31:*.py=00;36:'
+
+#alias d=dir;
+#alias v=vdir;
+
+# ls color 실제 반영시
+#eval `dircolors -b`
+
+#########################################################
+# Equity Profile
+#########################################################
+export EQUITY_HOME=/opt/SDrv/EQUITY
+export FICC_HOME=$EQUITY_HOME/FICCOTC
+export DSDPS_HOME=$EQUITY_HOME/DSDistributedProcessingSystem
+export DJANGO_HOME=$EQUITY_HOME/Quants/Django
+alias ficc='cd $COMPILE_DIR/Equity/FiccOTC'
+alias equity='cd $COMPILE_DIR/Equity/EquityOTC'
+alias django='cd $COMPILE_DIR/Equity/Django'
+alias ds='cd $COMPILE_DIR/Equity/DSDistributedProcessingSystem'
+#########################################################
+# QuantLib Profile
+#########################################################
+export QUANTLIB_HOME=/home/deplus/compile/QuantLib
+alias quant='cd $COMPILE_DIR/QuantLib'
+
+alias fnhost='grep $1 /etc/hosts'
+
+# NeoDB & Fdos
+# alias neo='mysql -u neo -h ocaml -pneo'
+# alias fdos='mysql -u root -h fdos -p3450'
+
+#########################################################
+# Neovim Haskell
+#########################################################
+# NVIM_LISTEN_ADDRESS=/tmp/nvim stack ghci
+
+# add Cabal's bin directory to the executable search PATH if it exists
+if [ -d "$HOME/.cabal/bin" ] ; then
+    PATH="$HOME/.cabal/bin:$PATH"
+fi
+
+# add Stack's bin directory to the executable search PATH if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [[ `hostname` == 'office'  ]]; then
+	# export GHC_PACKAGE_PATH=$HOME/.stack/snapshots/x86_64-linux/lts-8.21/8.0.2/pkgdb
+
+	# alias ghci='stack ghci'
+	# alias ghc='stack ghc'
+	# alias runhaskell='stack runhaskell'
+	echo '## Skipped - Setup Haskell Env'
+	# echo '## ###############################'
+elif [[ `hostname` == 'dev'  ]]; then  # HOME_NAS
+	alias ghci='stack ghci'
+	alias ghc='stack ghc'
+	alias runhaskell='stack runhaskell'
+	alias ghc-mod='stack exec -- ghc-mod'
+	export GHC_PACKAGE_PATH=$HOME/.stack/snapshots/x86_64-linux/lts-9.21/8.0.2/pkgdb
+# else
+# elif [[ `hostname` == 'e460'  ]]; then  # HOME_NAS
+# 	export GHC_PACKAGE_PATH=$HOME/.stack/snapshots/x86_64-linux/lts-9.21/8.0.2/pkgdb
+fi
+
+function hoog {
+    search=$1
+    count=$2
+    if [ -z $count ] ; then
+        hoogle -q --color "$search" | grep -v -e "^Searching for:" | awk 'BEGIN { a = 1 } { print a ") " $(NF-NF) ; a = a + 1 }' 
+    else    
+        hoogle -q --color -i --count=$count "$search"
+    fi
+}
+
+#########################################################
+# jekyll 
+#########################################################
+alias lserv='sudo jekyll serve --watch'

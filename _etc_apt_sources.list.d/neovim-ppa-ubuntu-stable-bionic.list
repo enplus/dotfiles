@@ -1,0 +1,4 @@
+deb http://ppa.launchpad.net/neovim-ppa/stable/ubuntu bionic main
+# deb-src http://ppa.launchpad.net/neovim-ppa/stable/ubuntu bionic main
+# if NO_PUBKEY
+# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 55F96FCF8231B6DD
