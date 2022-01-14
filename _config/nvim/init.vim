@@ -3,18 +3,18 @@ set hidden
 	"filetype off                  " required
 
 call plug#begin('~/.config/nvim/plugged')
-	Plug 'ervandew/supertab'
+	" Plug 'ervandew/supertab'
 	Plug 'junegunn/vim-easy-align'
 
 	" Any valid git URL is allowed
 	Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 	" Multiple Plug commands can be written in a single line using | separators
-	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+	" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 	" On-demand loading
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-	Plug 'jistr/vim-nerdtree-tabs'
+  Plug 'preservim/tagbar'
 
 	" Using a non-master branch
 	" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -35,12 +35,6 @@ call plug#begin('~/.config/nvim/plugged')
 	"python
 	""""Bundle 'Python-Syntax'
 	"Optimized for Python ColorScheme "Bundle 'vim-scripts/vimbuddy.vim'
-  " XXXXXX Plug 'davidhalter/jedi'  " for nvim
-
-  Plug 'davidhalter/jedi-vim'  " for vim not nvim
-	" Plug 'zchee/deoplete-zsh' "zsh Completion
-  " Plug 'deoplete-plugins/deoplete-jedi' " Python Completion for vim
-	"Plug 'zchee/deoplete-clang' " Clang Completion
 
 	Plug 'tmhedberg/SimpylFold'
 	Plug 'tweekmonster/braceless.vim'
@@ -91,11 +85,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'octol/vim-cpp-enhanced-highlight'
 
 	"javascript -
-	Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx'] }
-	"Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-	Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-	Plug 'pangloss/vim-javascript'
-	" Plug 'vim-sensible'
 	Plug 'Valloric/MatchTagAlways'
 
 	"Plug 'scrooloose/syntastic' " change to -> neomake
@@ -133,10 +122,10 @@ call plug#begin('~/.config/nvim/plugged')
 	" 차이점을 + 표기
 	Plug 'mhinz/vim-signify'
 
-	Plug 'majutsushi/tagbar'
-  Plug 'udalov/kotlin-vim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
   Plug 'smitajit/bufutils.vim'  " https://github.com/smitajit/bufutils.vim
+
 " Initialize plugin system
 
 call plug#end()
@@ -272,7 +261,7 @@ function! ToggleNERDTreeAndTagbar()
 		wincmd b
 		wincmd L
 		wincmd h
-		exe 'vertical resize 30'
+		" exe 'vertical resize 30'
 	endif
 endfunction
 
@@ -318,12 +307,14 @@ let g:virtualenv_auto_activate = 1
 
 " Python Configure
 let g:tagbar_width = 30
-let g:tagbar_compact = 1
+" let g:tagbar_compact = 1
 let g:tagbar_sort = 0
 "let g:tagbar_vertical = 40
 let g:tagbar_map_showproto = "<leader>"
 let g:tagbar_map_previewwin = "]"
-let g:tagbar_previewwin_pos = "rightbelow"
+" let g:tagbar_previewwin_pos = "leftbelow"
+let g:tagbar_position = 'rightbelow'
+let g:tagbar_height = 25
 
 " Unite Configure
 "let g:unite_source_history_yank_enable = 1
@@ -354,8 +345,6 @@ let g:terminal_scrollback_buffer_size = 100000
 
 " https://virgile.anbuco.fr/software/vim-ocaml.txt
 
-let g:nerdtree_tabs_open_on_console_startup=1
-
 " ================ Haskell Settings ========================
 " ./settings_neovim/additional-haskell.vimrc
 
@@ -365,22 +354,6 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " ================ Startup Settings ========================
 
 " ===========================================================
-" 2020.10.13 임시
-" let g:use_ale#autocomp= 0
-
-" if g:use_ale#autocomp == 1
-"   let g:deoplete#enable_at_startup = 0
-"   autocmd InsertEnter * call deoplete#enable()
-"   let g:ale_completion_enabled = 1
-" else
-"   let g:deoplete#enable_at_startup = 1
-"   let g:ale_completion_enabled = 0
-" endif
-let g:ale_completion_enabled = 0
-
-"""""" ale-if문 대체
-set runtimepath+=~/.config/nvim/plugged/deoplete.nvim/
-"let g:deoplete#enable_at_startup = 1
 " ===========================================================
 
 " let g:quickfixsize = 7

@@ -254,3 +254,9 @@ function hoog {
 # jekyll 
 #########################################################
 alias lserv='sudo jekyll serve --watch'
+
+case $(hostname) in
+  op)
+        source $DOTFILES/env_op.sh;;
+  (*)  echo "host name not found. check (Expand Env)";;
+esac
