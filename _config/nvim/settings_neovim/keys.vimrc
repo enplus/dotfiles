@@ -158,11 +158,8 @@ nnoremap <silent> <C-Right> :bn<CR>
 " nnoremap <silent> <A-Left> :bp<CR>
 " nnoremap <silent> <A-Right> :bn<CR>
 
-" nnoremap <leader>n :bn<CR>
-" nnoremap <leader>p :bp<CR>
-" nnoremap <C-PageUp> :bn<CR>
-" nnoremap <C-PageDown> :bp<CR>
-
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
 nnoremap <leader>bq :bp <BAR> bd #<CR>
 
 " for TmuxNavigater Don't allow any default key-mappings.
