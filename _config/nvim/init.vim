@@ -122,6 +122,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" 차이점을 + 표기
 	Plug 'mhinz/vim-signify'
 
+  Plug 'preservim/tagbar'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
   Plug 'smitajit/bufutils.vim'  " https://github.com/smitajit/bufutils.vim

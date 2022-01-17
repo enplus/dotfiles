@@ -28,11 +28,9 @@ inoremap <silent><expr> <TAB>
   \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-
 " 이거야 위에거야
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -149,10 +147,8 @@ nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <leader>p  :<C-u>CocListResume<CR>
-
 " use <c-space>for trigger completion
 " inoremap <silent><expr> <c-space> coc#refresh()
-
 
 " 커서 아래의 토큰을 강조
 autocmd CursorHold * silent call CocActionAsync('highlight')
